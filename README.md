@@ -7,23 +7,29 @@ As figure1 shows, OOK modulation is using two different symbols to sends one bit
 
 ![Alt text](/figs/modulations.jpg?raw=true "Figure 1- Different Modulation Scheme in Time Domain")
 
-Figure 1- Different Modulation Scheme in Time Domain
 
 As block diagram in figure 2 shows, transmitter is structured by different submodules and each of these modules take a responsibility for transmitting a signal.
- 
-Figure 2- Transmitter Block Diagram
-Message Reader
-	This submodule reads message from file or input text field on the application.
-Header Generator
-	As input, this module receives message from message reader and generates proper header related to message. This header can contain several information such as transmitter address, destination address, number of bits etc.
-String to Binary
-	This submodule converts string message to binary and prepare information in such a way that would be readable by encoder.
-Encoder
-	After adding header to the message, encoder received this information in binary format and does coding process. One of the benefits of dividing transmitter to different submodules is that we can implement different coding methods based on the information that input message is carrying on. For example, if input message only contains of English alphabets and it does not include any kind of special characters, encoder can encode each character to seven bits. Because based on ASCII definition of each character, all alphabets and lots of usual characters can be shown in seven bits. In my design, because I wasn’t sure about the input message format, I decided to use eight bits coding and support all ASCII characters and English alphabets.
-Modulator
-	This submodule, uses input bit stream and modulate them to continues sine wave. Because of using a hierarchy system in communication, it is easy to change this submodule and use any kind of modulation scheme such as On-Off keying, ASK, PSK etc. Wave generator produces a sine wave based on input bit stream and by adding sync pattern at the beginning of the wave, information will be transmitted by acoustic wave.
-Sync Pattern
-	Synchronization pattern contains two parts. The beginning of this pattern is a 13-Barker code preamble and second part is thirteen symbols which all of them correspond to one. The reason that I choose barker code as preamble is that by doing correlation between received signal and a match filter, related to 13-Barker code pattern, one high pick signal will be generated which can be used to detect the beginning of the message on received signal. 13-Barker code pattern shown in figure 3.
+
+![Alt text](/figs/block.jpg?raw=true "Figure 2- Transmitter Block Diagram")
+
+
+## Message Reader
+This submodule reads message from file or input text field on the application.
+
+## Header Generator
+As input, this module receives message from message reader and generates proper header related to message. This header can contain several information such as transmitter address, destination address, number of bits etc.
+
+## String to Binary
+This submodule converts string message to binary and prepare information in such a way that would be readable by encoder.
+
+## Encoder
+After adding header to the message, encoder received this information in binary format and does coding process. One of the benefits of dividing transmitter to different submodules is that we can implement different coding methods based on the information that input message is carrying on. For example, if input message only contains of English alphabets and it does not include any kind of special characters, encoder can encode each character to seven bits. Because based on ASCII definition of each character, all alphabets and lots of usual characters can be shown in seven bits. In my design, because I wasn’t sure about the input message format, I decided to use eight bits coding and support all ASCII characters and English alphabets.
+
+## Modulator
+This submodule, uses input bit stream and modulate them to continues sine wave. Because of using a hierarchy system in communication, it is easy to change this submodule and use any kind of modulation scheme such as On-Off keying, ASK, PSK etc. Wave generator produces a sine wave based on input bit stream and by adding sync pattern at the beginning of the wave, information will be transmitted by acoustic wave.
+
+## Sync Pattern
+Synchronization pattern contains two parts. The beginning of this pattern is a 13-Barker code preamble and second part is thirteen symbols which all of them correspond to one. The reason that I choose barker code as preamble is that by doing correlation between received signal and a match filter, related to 13-Barker code pattern, one high pick signal will be generated which can be used to detect the beginning of the message on received signal. 13-Barker code pattern shown in figure 3.
 Length	Codes	Sidelobe level ratio
 2	+1 −1	+1 +1	−6 dB
 3	+1 +1 −1	−9.5 dB
