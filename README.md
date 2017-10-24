@@ -37,15 +37,15 @@ Synchronization pattern contains two parts. The beginning of this pattern is a 1
 | Content Cell  | Content Cell  |
 
 
-|Length | Codes	| Sidelobe level ratio|
-|------------- | -------------|
-|2  | +1 −1 or +1 +1 				| −6 dB|
-|3  | +1 +1 −1 					| −9.5 dB|
-|4  | +1 +1 −1 +1	or +1 +1 +1 −1 		| −12 dB|
-|5  | +1 +1 +1 −1 +1				| −14 dB|
-|7  | +1 +1 +1 −1 −1 +1 −1 			| −16.9 dB|
-|11 | +1 +1 +1 −1 −1 −1 +1 −1 −1 +1 −1 		| −20.8 dB|
-|13 | +1 +1 +1 +1 +1 −1 −1 +1 +1 −1 +1 −1 +1 	| −22.3 dB|
+| Length | Codes | Sidelobe level ratio |
+| -------------  | ------------- |
+| 2  | +1 −1 or +1 +1 				| −6 dB		|
+| 3  | +1 +1 −1 				| −9.5 dB	|
+| 4  | +1 +1 −1 +1	or +1 +1 +1 −1 		| −12 dB	|
+| 5  | +1 +1 +1 −1 +1				| −14 dB	|
+| 7  | +1 +1 +1 −1 −1 +1 −1 			| −16.9 dB	|
+| 11 | +1 +1 +1 −1 −1 −1 +1 −1 −1 +1 −1 	| −20.8 dB	|
+| 13 | +1 +1 +1 +1 +1 −1 −1 +1 +1 −1 +1 −1 +1 	| −22.3 dB	|
 
 Table 1- Known Barker Codes
 
