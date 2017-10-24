@@ -96,8 +96,9 @@ By using this set up, I was able to reduce each symbol length to 80 samples. Con
 ### Bit error rate
 As figure 5 shows, BER is increasing by having more distance between two phones.
 
- 
-Figure 5- Bit Error Rate versus Distance
+![Alt text](/figs/result.jpg?raw=true "Figure 5- Bit Error Rate versus Distance")
+
+
 ### Maximum distance with BER less than 2%
 Based on figure 5, maximum distance that this communication system can transfer data with BER less than 2% is about 20cm. 
 
