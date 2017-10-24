@@ -5,6 +5,8 @@ First we will discuss about designing transmitter and choosing a modulation sche
 I decided to use On-Off Keying (OOK) as my modulation scheme which sends one bit per each sample. The reason is that at the beginning of this project, creating a sine wave on android seems to be difficult and as the modulation scheme gets more complicated, receiver will be also more complicated to design. Hence, I decided to use simplest modulation scheme and after implementing that, we can improve transmitter and use other schemes.
 As figure1 shows, OOK modulation is using two different symbols to sends one bit per symbol. This modulation uses a sine wave to send a bit which is correspond to 1 and sends a signal with zero amplitude that correspond to 0. Duration of each symbol is called time interval (T) which shows length of modulated signal for each bit. Time interval is dependent to noise floor of the environment and by increasing this number, we can achieve higher SNR. Also, there is a trade-off between time interval and bitrate which should be determined based on the characteristics of communication channel.
 
+{% include image.html url="/figs/modulations.jpg" description="My cat, Robert Downey Jr." %}
+
 ![Alt text](/figs/modulations.jpg?raw=true "Figure 1- Different Modulation Scheme in Time Domain")
 
 
@@ -31,6 +33,7 @@ This submodule, uses input bit stream and modulate them to continues sine wave. 
 ## Sync Pattern
 Synchronization pattern contains two parts. The beginning of this pattern is a 13-Barker code preamble and second part is thirteen symbols which all of them correspond to one. The reason that I choose barker code as preamble is that by doing correlation between received signal and a match filter, related to 13-Barker code pattern, one high pick signal will be generated which can be used to detect the beginning of the message on received signal. 13-Barker code pattern shown in figure 3.
 
+Table 1- Known Barker Codes
 | Length | Codes | Sidelobe level ratio |
 | -------------  | ------------- | ------------- |
 | 2  | +1 −1 or +1 +1 				| −6 dB		|
@@ -40,7 +43,7 @@ Synchronization pattern contains two parts. The beginning of this pattern is a 1
 | 7  | +1 +1 +1 −1 −1 +1 −1 			| −16.9 dB	|
 | 11 | +1 +1 +1 −1 −1 −1 +1 −1 −1 +1 −1 	| −20.8 dB	|
 | 13 | +1 +1 +1 +1 +1 −1 −1 +1 +1 −1 +1 −1 +1 	| −22.3 dB	|
-Table 1- Known Barker Codes
+
 
 At best case, barker code can provide 22.3 dB side lobe level ratio, according to table 1, which is a very promising value as a preamble. Although, length of this preamble is long compare to other preambles and that adds up to the overhead of each message, but there is a trade-off between length of preamble and bit error rate(BER). By decreasing the size of the preamble, probability of missing the beginning of each message would increase and that cause more BER. Exploring characteristics of the channel which this communication system would be used in, can give us more hints about this trade-off. Unfortunately, I did not have enough time to try different preamble patterns and do experiments on them, but as table 1 shows, shorter preamble also can be used. In that case, bit rate can be improved by decreasing the length of preamble or using other preamble patterns.
 
