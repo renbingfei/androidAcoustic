@@ -5,8 +5,6 @@ First we will discuss about designing transmitter and choosing a modulation sche
 I decided to use On-Off Keying (OOK) as my modulation scheme which sends one bit per each sample. The reason is that at the beginning of this project, creating a sine wave on android seems to be difficult and as the modulation scheme gets more complicated, receiver will be also more complicated to design. Hence, I decided to use simplest modulation scheme and after implementing that, we can improve transmitter and use other schemes.
 As figure1 shows, OOK modulation is using two different symbols to sends one bit per symbol. This modulation uses a sine wave to send a bit which is correspond to 1 and sends a signal with zero amplitude that correspond to 0. Duration of each symbol is called time interval (T) which shows length of modulated signal for each bit. Time interval is dependent to noise floor of the environment and by increasing this number, we can achieve higher SNR. Also, there is a trade-off between time interval and bitrate which should be determined based on the characteristics of communication channel.
 
-{% include image.html url="/figs/modulations.jpg" description="My cat, Robert Downey Jr." %}
-
 ![Alt text](/figs/modulations.jpg?raw=true "Figure 1- Different Modulation Scheme in Time Domain")
 
 
