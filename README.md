@@ -30,6 +30,13 @@ This submodule, uses input bit stream and modulate them to continues sine wave. 
 
 ## Sync Pattern
 Synchronization pattern contains two parts. The beginning of this pattern is a 13-Barker code preamble and second part is thirteen symbols which all of them correspond to one. The reason that I choose barker code as preamble is that by doing correlation between received signal and a match filter, related to 13-Barker code pattern, one high pick signal will be generated which can be used to detect the beginning of the message on received signal. 13-Barker code pattern shown in figure 3.
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+
 |Length | Codes	| Sidelobe level ratio|
 |------------- | -------------|
 |2  | +1 −1 or +1 +1 				| −6 dB|
@@ -39,6 +46,7 @@ Synchronization pattern contains two parts. The beginning of this pattern is a 1
 |7  | +1 +1 +1 −1 −1 +1 −1 			| −16.9 dB|
 |11 | +1 +1 +1 −1 −1 −1 +1 −1 −1 +1 −1 		| −20.8 dB|
 |13 | +1 +1 +1 +1 +1 −1 −1 +1 +1 −1 +1 −1 +1 	| −22.3 dB|
+
 Table 1- Known Barker Codes
 
 At best case, barker code can provide 22.3 dB side lobe level ratio, according to table 1, which is a very promising value as a preamble. Although, length of this preamble is long compare to other preambles and that adds up to the overhead of each message, but there is a trade-off between length of preamble and bit error rate(BER). By decreasing the size of the preamble, probability of missing the beginning of each message would increase and that cause more BER. Exploring characteristics of the channel which this communication system would be used in, can give us more hints about this trade-off. Unfortunately, I did not have enough time to try different preamble patterns and do experiments on them, but as table 1 shows, shorter preamble also can be used. In that case, bit rate can be improved by decreasing the length of preamble or using other preamble patterns.
