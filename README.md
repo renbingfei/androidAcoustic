@@ -38,7 +38,7 @@ Synchronization pattern contains two parts. The beginning of this pattern is a 1
 
 
 | Length | Codes | Sidelobe level ratio |
-| -------------  | ------------- |
+| -------------  | ------------- | ------------- |
 | 2  | +1 −1 or +1 +1 				| −6 dB		|
 | 3  | +1 +1 −1 				| −9.5 dB	|
 | 4  | +1 +1 −1 +1	or +1 +1 +1 −1 		| −12 dB	|
