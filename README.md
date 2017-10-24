@@ -30,8 +30,8 @@ This submodule, uses input bit stream and modulate them to continues sine wave. 
 
 ## Sync Pattern
 Synchronization pattern contains two parts. The beginning of this pattern is a 13-Barker code preamble and second part is thirteen symbols which all of them correspond to one. The reason that I choose barker code as preamble is that by doing correlation between received signal and a match filter, related to 13-Barker code pattern, one high pick signal will be generated which can be used to detect the beginning of the message on received signal. 13-Barker code pattern shown in figure 3.
-
 Table 1- Known Barker Codes
+
 | Length | Codes | Sidelobe level ratio |
 | -------------  | ------------- | ------------- |
 | 2  | +1 −1 or +1 +1 				| −6 dB		|
