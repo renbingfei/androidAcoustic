@@ -8,7 +8,7 @@ As figure1 shows, OOK modulation is using two different symbols to sends one bit
 ![Alt text](/figs/modulations.jpg?raw=true "Figure 1- Different Modulation Scheme in Time Domain")
 
 
-As block diagram in figure 2 shows, transmitter is structured by different submodules and each of these modules take a responsibility for transmitting a signal.
+As block diagram in figure 2 shows, transmitter is structured by different submodules and each of these modules take a responsibility for transmitting signal.
 
 ![Alt text](/figs/block.jpg?raw=true "Figure 2- Transmitter Block Diagram")
 
