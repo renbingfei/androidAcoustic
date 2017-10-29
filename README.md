@@ -1,14 +1,14 @@
 # Acoustic Communication
-In this project we want to design a communication system which can transmit data over acoustic waves. Here, our target is smart phone which runs Android operating system and that’s because android gives us a wide range of access to hardware including determining sampling rate, different mode of playing sound on speaker. These access also applied for microphone hardware which we need on receiver side.
-First we will discuss about designing transmitter and choosing a modulation scheme. Then based on that, receiver will be designed and also result of different experiments with this communication system will be reported.
+In this project, I want to design a communication system which can transmit data over acoustic waves. My target is to implement this communication system on smartphones with runs Android operating system as my project for CSE561, computer networks course.
+First I will discuss transmitter design and modulation scheme. Then based on that, I will describe receiver design, and also I wiil show results of different experiments with my communication system.
+
 # Transmitter
-I decided to use On-Off Keying (OOK) as my modulation scheme which sends one bit per each sample. The reason is that at the beginning of this project, creating a sine wave on android seems to be difficult and as the modulation scheme gets more complicated, receiver will be also more complicated to design. Hence, I decided to use simplest modulation scheme and after implementing that, we can improve transmitter and use other schemes.
-As figure1 shows, OOK modulation is using two different symbols to sends one bit per symbol. This modulation uses a sine wave to send a bit which is correspond to 1 and sends a signal with zero amplitude that correspond to 0. Duration of each symbol is called time interval (T) which shows length of modulated signal for each bit. Time interval is dependent to noise floor of the environment and by increasing this number, we can achieve higher SNR. Also, there is a trade-off between time interval and bitrate which should be determined based on the characteristics of communication channel.
+I decided to use On-Off Keying (OOK) as my modulation scheme which sends one bit per each sample. This makes transmitter and receiver design very simple, which is my goal as frist try of designing a communication system on Android. As Fig. 1 shows, OOK modulation is using two different symbols to sends one bit per symbol. This modulation uses a sine wave to send a bit which is correspond to 1 and sends a signal with zero amplitude that correspond to 0. Duration of each symbol is symbole time interval (T) which shows length of modulated signal for each bit. Time interval is dependent to noise floor of the environment and by increasing it, we can achieve higher SNR. Also, there is a trade-off between time interval and bitrate which should be determined based on the characteristics of communication channel.
 
 ![Alt text](/figs/modulations.jpg?raw=true "Figure 1- Different Modulation Scheme in Time Domain")
 
 
-As block diagram in figure 2 shows, transmitter is structured by different submodules and each of these modules take a responsibility for transmitting signal.
+As block diagram in Fig. 2 shows, transmitter is structured by different submodules and each submodule performs special task.
 
 ![Alt text](/figs/block.jpg?raw=true "Figure 2- Transmitter Block Diagram")
 
